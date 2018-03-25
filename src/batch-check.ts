@@ -37,8 +37,8 @@ async function batchCheck(filePatterns: string[], concurrentChecks = 1): Promise
   return checkQueue.onIdle().then(() => checkResults);
 }
 
-batchCheck(['*.json'], 2).then(() => {
-  console.log('Everything is done and it worked great!');
+batchCheck(['*.json'], 2).then((checkResults) => {
+  console.log('Everything is done and it worked great!', checkResults);
 }).catch((error) => {
   console.error('Upps, an error: ', error);
 });
